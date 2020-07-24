@@ -4,32 +4,17 @@
 import os, sys, binascii, re
 #import pyfiglet
 
-def ccesar(chave, mensagem):
-    # número das letras nas extremidades do alfabeto
-    nA = ord('A')
-    nZ = ord('Z')
-    na = ord('a')
-    nz = ord('z')
+def cesar(chave, mensagem):
+    alfabeto = "abcdefghijklmnopqrstuvwxyz"
+    alfabeto_deslocado = alfabeto[chave:] + alfabeto[:chave]
+    tabela = str.maketrans(alfabeto, alfabeto_deslocado)
+    mensagem1 = mensagem.translate(tabela)
 
-    cifrada = ""
-    for caracter in mensagem:
-        # achar no alfabeto a letra que esteja chave posições a frente
-        ind = ord(caracter)
-        # Se estiver no intervalo de letras maiúsculas
-        if nA <= ind <= nZ:
-            nova_letra = chr((ind + chave)%(nZ+1) + ((ind + chave)//(nZ+1))*nA)
-            # substituir na mensagem a letra pela nova_letra
-            cifrada = cifrada + nova_letra
-        # Outra forma de verificar se esta no intervalo de letras (agora) minúsculas
-        # lembrar que range gera intervalos da forma [a, b), portanto somamos 1
-        elif ind in range(na, nz + 1):
-            nova_letra = chr((ind + chave)%(nz+1) + ((ind + chave)//(nz+1))*na)
-            cifrada = cifrada + nova_letra
-        # Se não for letra
-        else:
-            cifrada = cifrada + caracter
+    alfabeto1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    alfabeto1_deslocado = alfabeto1[chave:] + alfabeto1[:chave]
+    tabela1 = str.maketrans(alfabeto1, alfabeto1_deslocado)
 
-    return cifrada
+    return mensagem1.translate(tabela1)
 
 def txt2hex(mensagem):
     # Converte um texto para Hex
@@ -148,14 +133,14 @@ def main():
                 mensagem = str(sys.argv[2])
                 contador = 1
                 while ( contador < 27 ):
-                    cifrada = ccesar(contador, mensagem)
+                    cifrada = cesar(contador, mensagem)
                     print(contador,' ', cifrada)
                     contador = contador + 1
                 quit()
             elif len(sys.argv) == 4:
                 chave = int(sys.argv[2])
                 mensagem = str(sys.argv[3])
-                cifrada = ccesar(chave, mensagem)
+                cifrada = cesar(chave, mensagem)
             else:
                 ajuda()
         elif sys.argv[1] == '-t2h':
