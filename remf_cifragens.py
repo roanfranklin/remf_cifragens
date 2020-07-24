@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-# pip install pyfiglet
+# pip3 install pyfiglet
 
 import os, sys, binascii, re
-#import pyfiglet
+import pyfiglet
 
 def cesar(chave, mensagem):
     alfabeto = "abcdefghijklmnopqrstuvwxyz"
@@ -105,11 +105,12 @@ def zenitpolar(mensagem):
     regex = re.sub("|".join(replaces.keys()), lambda match: replaces[match.string[match.start():match.end()]], mensagem)
     return regex
 
-def ajuda():
+def logo():
     os.system("clear")
-#    ascii_banner = pyfiglet.figlet_format("REMF.COM.BR - Cifragens")
-#    print(ascii_banner)
-    print(' REMF.COM.BR')
+    ascii_banner = pyfiglet.figlet_format("REMF - Cifragens")
+    print(ascii_banner)
+
+def ajuda():
     print(' ')
     print(' Use: ', sys.argv[0], '-cc [ ROT = numero positivo/negativo ] "Frase a ser cifrada com cifra de cesar usando um ROT específico."')
     print('      ', sys.argv[0], '-cc "Frase a ser cifrada com cifra de cesar usando todos ROT 1 à 26."')
@@ -122,6 +123,7 @@ def ajuda():
     quit()
 
 def main():
+    logo()
     if len(sys.argv) > 1:
         if sys.argv[1] == '-cc':
             if len(sys.argv) == 3:
