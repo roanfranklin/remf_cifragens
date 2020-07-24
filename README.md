@@ -8,10 +8,9 @@ Script em python para cifragens:
    - Tenis Polar
    - Zenit Polar
 
-
 Usar:
 
-     python3 remf_cifragens -cc [ ROT = Numero 1 à 26 ] "Frase a ser cifrada com cifra de cesar usando um ROT específico." 
+     python3 remf_cifragens -cc [ ROT = numero positivo/negativo ] "Frase a ser cifrada com cifra de cesar usando um ROT específico."
      python3 remf_cifragens -cc "Frase a ser cifrada com cifra de cesar usando todos ROT 1 à 26." 
      python3 remf_cifragens -t2h "Frase a ser coverditida de texto em hexadecinal." 
      python3 remf_cifragens -h2t "Frase a ser coverditida de hexadecinal em texto." 

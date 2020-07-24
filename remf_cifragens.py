@@ -111,7 +111,7 @@ def ajuda():
 #    print(ascii_banner)
     print(' REMF.COM.BR')
     print(' ')
-    print(' Use: ', sys.argv[0], '-cc [ ROT = Numero 1 à 26 ] "Frase a ser cifrada com cifra de cesar usando um ROT específico."')
+    print(' Use: ', sys.argv[0], '-cc [ ROT = numero positivo/negativo ] "Frase a ser cifrada com cifra de cesar usando um ROT específico."')
     print('      ', sys.argv[0], '-cc "Frase a ser cifrada com cifra de cesar usando todos ROT 1 à 26."')
     print('      ', sys.argv[0], '-t2h "Frase a ser coverditida de texto em hexadecinal."')
     print('      ', sys.argv[0], '-h2t "Frase a ser coverditida de hexadecinal em texto."')
@@ -122,11 +122,6 @@ def ajuda():
     quit()
 
 def main():
-#    print("     Nome do script: ", sys.argv[0])
-#    print("Total de argumentos: ", len(sys.argv))
-#    print("Lista de argumentos: ", str(sys.argv))
-#    quit()
-
     if len(sys.argv) > 1:
         if sys.argv[1] == '-cc':
             if len(sys.argv) == 3:
