@@ -3,6 +3,7 @@
 
 import os, sys, binascii, re
 import pyfiglet
+import subprocess
 
 def cesar(chave, mensagem):
     alfabeto = "abcdefghijklmnopqrstuvwxyz"
@@ -29,6 +30,20 @@ def hex2txt(mensagem):
     decoded = str(decoded).strip("b")
     decoded = decoded.strip("'")
     return decoded
+
+
+def sh(cmd, input=""):
+    rst = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, input=input.encode("utf-8"))
+    assert rst.returncode == 0, rst.stderr.decode("utf-8")
+    return rst.stdout.decode("utf-8")
+
+def txt2hex_xxd(mensagem):
+    output = sh('echo ' + mensagem + ' | xxd -ps -c 200 | tr -d "\n"')
+    return output
+
+def hex2txt_xxd(mensagem): 
+    output = sh('echo ' + mensagem + ' | xxd -r -p')
+    return output
 
 def miletpolar(mensagem):
     replaces = {'m':'p',
@@ -111,11 +126,14 @@ def logo():
     print(ascii_banner)
 
 def ajuda():
+    logo()
     print(' ')
     print(' Use: ', sys.argv[0], '-cc [ ROT = numero positivo/negativo ] "Frase a ser cifrada com cifra de cesar usando um ROT específico."')
     print('      ', sys.argv[0], '-cc "Frase a ser cifrada com cifra de cesar usando todos ROT 1 à 26."')
     print('      ', sys.argv[0], '-t2h "Frase a ser coverditida de texto em hexadecinal."')
+    print('      ', sys.argv[0], '-xt2h "Frase a ser coverditida de texto em hexadecinal."')
     print('      ', sys.argv[0], '-h2t "Frase a ser coverditida de hexadecinal em texto."')
+    print('      ', sys.argv[0], '-xh2t "Frase a ser coverditida de hexadecinal em texto."')
     print('      ', sys.argv[0], '-mp "Cifrar o texto usando substituição MILET POLAR."')
     print('      ', sys.argv[0], '-tp "Cifrar o texto usando substituição TENIS POLAR."')
     print('      ', sys.argv[0], '-zp "Cifrar o texto usando substituição ZENIT POLAR."')
@@ -123,7 +141,6 @@ def ajuda():
     quit()
 
 def main():
-    logo()
     if len(sys.argv) > 1:
         if sys.argv[1] == '-cc':
             if len(sys.argv) == 3:
@@ -146,10 +163,22 @@ def main():
                 cifrada = txt2hex(mensagem)
             else:
                 ajuda()
+        elif sys.argv[1] == '-xt2h':
+            if len(sys.argv) == 3:
+                mensagem = str(sys.argv[2])
+                cifrada = txt2hex_xxd(mensagem)
+            else:
+                ajuda()
         elif sys.argv[1] == '-h2t':
             if len(sys.argv) == 3:
                 mensagem = str(sys.argv[2])
                 cifrada = hex2txt(mensagem)
+            else:
+                ajuda()
+        elif sys.argv[1] == '-xh2t':
+            if len(sys.argv) == 3:
+                mensagem = str(sys.argv[2])
+                cifrada = hex2txt_xxd(mensagem)
             else:
                 ajuda()
         elif sys.argv[1] == '-mp':
