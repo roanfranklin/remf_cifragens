@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 # pip3 install pyfiglet
+# pip3 install colorama
 
 import os, sys, binascii, re
 import pyfiglet
 import subprocess
+import colorama
+from colorama import Fore, Style
 
 def cesar(chave, mensagem):
     alfabeto = "abcdefghijklmnopqrstuvwxyz"
@@ -123,21 +126,23 @@ def zenitpolar(mensagem):
 def logo():
     os.system("clear")
     ascii_banner = pyfiglet.figlet_format("REMF - Cifragens")
-    print(ascii_banner)
+    name_app = 'Cifragens'
+    print(Style.BRIGHT+Fore.BLUE+ascii_banner)
+    print(Fore.YELLOW+' [ '+Fore.WHITE+'REMF.COM.BR'+Fore.YELLOW+' - '+Fore.WHITE+name_app+Fore.YELLOW+' ]'+Style.RESET_ALL)
 
 def ajuda():
     logo()
-    print(' ')
-    print(' Use: ', sys.argv[0], '-cc [ ROT = numero positivo/negativo ] "Frase a ser cifrada com cifra de cesar usando um ROT específico."')
-    print('      ', sys.argv[0], '-cc "Frase a ser cifrada com cifra de cesar usando todos ROT 1 à 26."')
-    print('      ', sys.argv[0], '-t2h "Frase a ser coverditida de texto em hexadecinal."')
-    print('      ', sys.argv[0], '-xt2h "Frase a ser coverditida de texto em hexadecinal."')
-    print('      ', sys.argv[0], '-h2t "Frase a ser coverditida de hexadecinal em texto."')
-    print('      ', sys.argv[0], '-xh2t "Frase a ser coverditida de hexadecinal em texto."')
-    print('      ', sys.argv[0], '-mp "Cifrar o texto usando substituição MILET POLAR."')
-    print('      ', sys.argv[0], '-tp "Cifrar o texto usando substituição TENIS POLAR."')
-    print('      ', sys.argv[0], '-zp "Cifrar o texto usando substituição ZENIT POLAR."')
-    print(' ')
+    print(' '+Fore.CYAN)
+    print(' Use:', sys.argv[0], '-cc [ ROT = numero positivo/negativo ] "Frase a ser cifrada com cifra de cesar usando um ROT específico."')
+    print('     ', sys.argv[0], '-cc "Frase a ser cifrada com cifra de cesar usando todos ROT 1 à 26."')
+    print('     ', sys.argv[0], '-t2h "Frase a ser coverditida de texto em hexadecinal."')
+    print('     ', sys.argv[0], '-xt2h "Frase a ser coverditida de texto em hexadecinal."')
+    print('     ', sys.argv[0], '-h2t "Frase a ser coverditida de hexadecinal em texto."')
+    print('     ', sys.argv[0], '-xh2t "Frase a ser coverditida de hexadecinal em texto."')
+    print('     ', sys.argv[0], '-mp "Cifrar o texto usando substituição MILET POLAR."')
+    print('     ', sys.argv[0], '-tp "Cifrar o texto usando substituição TENIS POLAR."')
+    print('     ', sys.argv[0], '-zp "Cifrar o texto usando substituição ZENIT POLAR."')
+    print(Style.RESET_ALL+' ')
     quit()
 
 def main():

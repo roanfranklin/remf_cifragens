@@ -8,12 +8,19 @@ Script em python para cifragens:
    - Tenis Polar
    - Zenit Polar
 
-Usar:
+# Ajuda
 
-     python3 remf_cifragens -cc [ ROT = numero positivo/negativo ] "Frase a ser cifrada com cifra de cesar usando um ROT específico."
-     python3 remf_cifragens -cc "Frase a ser cifrada com cifra de cesar usando todos ROT 1 à 26." 
-     python3 remf_cifragens -t2h "Frase a ser coverditida de texto em hexadecinal." 
-     python3 remf_cifragens -h2t "Frase a ser coverditida de hexadecinal em texto." 
-     python3 remf_cifragens -mp "Cifrar o texto usando substituição MILET POLAR." 
-     python3 remf_cifragens -tp "Cifrar o texto usando substituição TENIS POLAR." 
-     python3 remf_cifragens -zp "Cifrar o texto usando substituição ZENIT POLAR." 
+    Use: ./remf_cifragens.py -cc [ ROT = numero positivo/negativo ] "Frase a ser cifrada com cifra de cesar usando um ROT específico."
+         ./remf_cifragens.py -cc "Frase a ser cifrada com cifra de cesar usando todos ROT 1 à 26."
+         ./remf_cifragens.py -t2h "Frase a ser coverditida de texto em hexadecinal."
+         ./remf_cifragens.py -xt2h "Frase a ser coverditida de texto em hexadecinal."
+         ./remf_cifragens.py -h2t "Frase a ser coverditida de hexadecinal em texto."
+         ./remf_cifragens.py -xh2t "Frase a ser coverditida de hexadecinal em texto."
+         ./remf_cifragens.py -mp "Cifrar o texto usando substituição MILET POLAR."
+         ./remf_cifragens.py -tp "Cifrar o texto usando substituição TENIS POLAR."
+         ./remf_cifragens.py -zp "Cifrar o texto usando substituição ZENIT POLAR."
+
+OBS.: A conversão de Texto para Hexadecimal e de Hexadecimal para Texto, tem 2 (duas) entradas para cada. Motivo é que uma [ -t2h | -h2t ] usa o modulo binascii diretamente no python, e a outra [ -xt2h | -xh2t ] usa a ferramenta/aplicação xxd.
+
+# Roan Franklin
+http://www.remf.com.br/
