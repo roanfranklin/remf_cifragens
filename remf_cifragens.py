@@ -123,6 +123,16 @@ def zenitpolar(mensagem):
     regex = re.sub("|".join(replaces.keys()), lambda match: replaces[match.string[match.start():match.end()]], mensagem)
     return regex
 
+def perm(s, s1 = ''):
+    mensagem = ''
+    if len(s) == 0:
+        print(s1)
+    else:
+        for i in range(len(s)):
+            perm(s[:i]+s[(i+1):],s1+s[i])
+
+    return 0
+
 def logo():
     os.system("clear")
     ascii_banner = pyfiglet.figlet_format("REMF - Cifragens")
@@ -142,6 +152,7 @@ def ajuda():
     print('     ', sys.argv[0], '-mp "Cifrar o texto usando substituição MILET POLAR."')
     print('     ', sys.argv[0], '-tp "Cifrar o texto usando substituição TENIS POLAR."')
     print('     ', sys.argv[0], '-zp "Cifrar o texto usando substituição ZENIT POLAR."')
+    print('     ', sys.argv[0], '-ana "ANAGRAMA"')
     print(Style.RESET_ALL+' ')
     quit()
 
@@ -202,6 +213,12 @@ def main():
             if len(sys.argv) == 3:
                 mensagem = str(sys.argv[2])
                 cifrada = zenitpolar(mensagem);
+            else:
+                ajuda()
+        elif sys.argv[1] == '-ana':
+            if len(sys.argv) == 3:
+                perm(str(sys.argv[2]))
+                quit()
             else:
                 ajuda()
         else:

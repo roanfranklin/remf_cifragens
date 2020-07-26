@@ -19,6 +19,7 @@ Script em python para cifragens:
          ./remf_cifragens.py -mp "Cifrar o texto usando substituição MILET POLAR."
          ./remf_cifragens.py -tp "Cifrar o texto usando substituição TENIS POLAR."
          ./remf_cifragens.py -zp "Cifrar o texto usando substituição ZENIT POLAR."
+         ./remf_cifragens.py -ana "ANAGRAMA"
 
 OBS.: A conversão de Texto para Hexadecimal e de Hexadecimal para Texto, tem 2 (duas) entradas para cada. Motivo é que uma [ -t2h | -h2t ] usa o modulo binascii diretamente no python, e a outra [ -xt2h | -xh2t ] usa a ferramenta/aplicação xxd.
 
