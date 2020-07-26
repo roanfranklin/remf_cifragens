@@ -8,6 +8,7 @@ Script em python para cifragens:
    - Tenis Polar
    - Zenit Polar
 
+
 # Ajuda
 
     Use: ./remf_cifragens.py -cc [ ROT = numero positivo/negativo ] "Frase a ser cifrada com cifra de cesar usando um ROT específico."
@@ -22,6 +23,7 @@ Script em python para cifragens:
          ./remf_cifragens.py -ana "ANAGRAMA"
 
 OBS.: A conversão de Texto para Hexadecimal e de Hexadecimal para Texto, tem 2 (duas) entradas para cada. Motivo é que uma [ -t2h | -h2t ] usa o modulo binascii diretamente no python, e a outra [ -xt2h | -xh2t ] usa a ferramenta/aplicação xxd.
+
 
 # Roan Franklin
 http://www.remf.com.br/
