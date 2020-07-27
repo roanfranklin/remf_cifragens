@@ -1,7 +1,7 @@
-## REMF_Cifragens
-[![Github All Releases](https://img.shields.io/badge/REMF_Cifragens-version%200.0.1-red)]()
-[![Github All Releases](https://img.shields.io/badge/support-python%203.7%2F3.8%20%2B-brightgreen)]()
-[![Github All Releases](https://img.shields.io/badge/platform-windows%20%7C%20linux-lightgrey)]()
+## REMF_Cifragens :
+[![Github All Releases](https://img.shields.io/badge/REMF_Cifragens-versão%200.0.1-red)]()
+[![Github All Releases](https://img.shields.io/badge/suporte-python%203.7%2F3.8%20%2B-brightgreen)]()
+[![Github All Releases](https://img.shields.io/badge/platforma-windows%20%7C%20linux-lightgrey)]()
 
 Script em python para cifragens:
    - Cifra de Cesar
@@ -10,6 +10,7 @@ Script em python para cifragens:
    - Milet Polar
    - Tenis Polar
    - Zenit Polar
+   - Anagrama
 
 ## Instalação :
 Use o gerenciado de pacotes [pip](https://pip.pypa.io/en/stable/) para instalar requisitos
@@ -33,5 +34,5 @@ python3 remf_cifragens.py
 ```
 OBS.: A conversão de Texto para Hexadecimal e de Hexadecimal para Texto, tem 2 (duas) entradas para cada. Motivo é que uma [ -t2h | -h2t ] usa o modulo binascii diretamente no python, e a outra [ -xt2h | -xh2t ] usa a ferramenta/aplicação xxd.
 
-## Roan Franklin
+## Roan Franklin :
 http://www.remf.com.br/
