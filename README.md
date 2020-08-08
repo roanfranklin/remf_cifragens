@@ -19,6 +19,7 @@ cd remf_cifragens
 python3 -m pip install -r requirements.txt
 python3 remf_cifragens.py 
 ```
+
 ## Ajuda :
 ```bash
 ./remf_cifragens.py -cc [ ROT = numero positivo/negativo ] "Frase a ser cifrada com cifra de cesar usando um ROT específico."

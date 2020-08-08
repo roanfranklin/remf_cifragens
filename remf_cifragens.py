@@ -8,7 +8,17 @@ import subprocess
 import colorama
 from colorama import Fore, Style
 
+def enumero(valor):
+    try:
+         float(valor)
+    except ValueError:
+         return False
+    return True
+
 def cesar(chave, mensagem):
+    if not enumero(chave):
+        ajuda()
+
     alfabeto = "abcdefghijklmnopqrstuvwxyz"
     alfabeto_deslocado = alfabeto[chave:] + alfabeto[:chave]
     tabela = str.maketrans(alfabeto, alfabeto_deslocado)
@@ -133,6 +143,15 @@ def perm(s, s1 = ''):
 
     return 0
 
+def binario_texto(s, encoding='UTF-8'):
+    n = int('0b'+s, 2)
+    txt = binascii.unhexlify('%x' % n)
+    return txt
+
+def texto_binario(a):
+    a_bytes = bytes(a, "ascii")
+    return ' '.join(["{0:b}".format(x) for x in a_bytes])
+
 def logo():
     os.system("clear")
     ascii_banner = pyfiglet.figlet_format("REMF - Cifragens")
@@ -152,6 +171,8 @@ def ajuda():
     print('     ', sys.argv[0], '-mp "Cifrar o texto usando substituição MILET POLAR."')
     print('     ', sys.argv[0], '-tp "Cifrar o texto usando substituição TENIS POLAR."')
     print('     ', sys.argv[0], '-zp "Cifrar o texto usando substituição ZENIT POLAR."')
+    print('     ', sys.argv[0], '-b2t "Binario para texto."')
+    print('     ', sys.argv[0], '-t2b "Texto para binario."')
     print('     ', sys.argv[0], '-ana "ANAGRAMA"')
     print(Style.RESET_ALL+' ')
     quit()
@@ -215,6 +236,19 @@ def main():
                 cifrada = zenitpolar(mensagem);
             else:
                 ajuda()
+        elif sys.argv[1] == '-b2t':
+            if len(sys.argv) == 3:
+                mensagem = str(sys.argv[2])
+                cifrada = binario_texto(mensagem);
+            else:
+                ajuda()
+        elif sys.argv[1] == '-t2b':
+            if len(sys.argv) == 3:
+                mensagem = str(sys.argv[2])
+                cifrada = texto_binario(mensagem);
+            else:
+                ajuda()
+
         elif sys.argv[1] == '-ana':
             if len(sys.argv) == 3:
                 perm(str(sys.argv[2]))
